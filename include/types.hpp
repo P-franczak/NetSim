@@ -1,8 +1,6 @@
-//
-// Created by pjmf2 on 08.12.2023.
-//
-
 #ifndef NETSIM_TYPES_HPP
 #define NETSIM_TYPES_HPP
+
+using ElementID = unsigned long long;
 
 #endif //NETSIM_TYPES_HPP
