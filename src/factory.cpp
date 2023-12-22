@@ -144,7 +144,7 @@ Factory load_factory_structure(std::istream& is){
         parsedLineData = parse_line(line);
         auto parameters = parsedLineData.get_parameters();
         if (parsedLineData.get_element_type() == ElementType::RAMP){
-            Ramp ramp = Ramp(std::stoull(parameters["id"]), std::stoull(parameters["delivery-interval"])));
+            Ramp ramp = Ramp(std::stoull(parameters["id"]), std::stoull(parameters["delivery-interval"]));
             factory.add_ramp(std::move(ramp));
         }
         else if (parsedLineData.get_element_type() == ElementType::WORKER){
