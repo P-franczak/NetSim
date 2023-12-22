@@ -1,6 +1,5 @@
 #include "factory.hpp"
 
-
 bool Factory::has_reachable_storehouse(const PackageSender* sender, std::map<const PackageSender*, NodeColor>& node_colors){
     if(node_colors[sender] == NodeColor::VERIFIED){
         return true;
