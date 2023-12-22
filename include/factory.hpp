@@ -68,14 +68,32 @@ public:
     void do_package_passing();
     void do_work(Time time);
 
-    void remove_receiver(NodeCollection<Worker>& collection, ElementID id);
-    void remove_receiver(NodeCollection<Storehouse>& collection, ElementID id);
-
 private:
     NodeCollection<Ramp> ramps_;
     NodeCollection<Storehouse> storehouses_;
     NodeCollection<Worker> workers_;
 };
 
+
+enum class ElementType{
+    RAMP, WORKER, STOREHOUSE, LINK
+};
+
+
+class ParsedLineData{
+public:
+    ParsedLineData() = default;
+    ParsedLineData(ElementType elementType, std::map<std::string, std::string> &&parameters) : element_type_(elementType), parameters_(parameters) {}
+
+    ElementType get_element_type() const { return element_type_; }
+    std::map<std::string, std::string> get_parameters() const { return parameters_; }
+private:
+    ElementType element_type_;
+    std::map<std::string,std::string> parameters_;
+};
+
+ParsedLineData parse_line(std::string line);
+Factory load_factory_structure(std::istream& is);
+void save_factory_structure(Factory& factory, std::ostream& os);
 
 #endif //NETSIM_FACTORY_HPP
