@@ -69,6 +69,8 @@ public:
     void do_work(Time time);
 
 private:
+    void remove_receiver(NodeCollection<Worker>& collection, ElementID id);
+    void remove_receiver(NodeCollection<Storehouse>& collection, ElementID id);
     NodeCollection<Ramp> ramps_;
     NodeCollection<Storehouse> storehouses_;
     NodeCollection<Worker> workers_;
