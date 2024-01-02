@@ -97,6 +97,8 @@ public:
 
     void receive_package(Package &&p) override;
 
+    const std::unique_ptr<IPackageStockpile> &get_stockpile() const { return d_; }
+
     ElementID get_id() const override { return id_; }
 
     IPackageStockpile::const_iterator cbegin() const override { return d_->cbegin(); }
@@ -136,6 +138,8 @@ public:
     Time get_package_processing_start_time() const { return t_; }
 
     void receive_package(Package &&p) override;
+
+    const std::optional<Package> &get_processing_buffer() const { return bufor_; }
 
     ElementID get_id() const override { return id_; }
 
